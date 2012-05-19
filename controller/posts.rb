@@ -53,7 +53,7 @@ module Controller
       post = Libertree::Model::Post.create(
         'member_id' => account.member.id,
         'public'    => true,
-        'text'      => cleanse(text)
+        'text'      => text
       )
       Libertree::Model::Job.create(
         task: 'request:POST',
@@ -130,7 +130,7 @@ module Controller
       post = Libertree::Model::Post[ request['post_id'].to_i ]
       redirect_referrer  if post.member != account.member
 
-      post.revise cleanse(text)
+      post.revise text
       Libertree::Model::Job.create(
         task: 'request:POST',
         params: {

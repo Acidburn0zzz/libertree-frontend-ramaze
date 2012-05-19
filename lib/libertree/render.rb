@@ -10,6 +10,7 @@ module Libertree
       {
         autolink: true,
         space_after_headers: true,
+        filter_html: true
       }
     )
     markdown.render s

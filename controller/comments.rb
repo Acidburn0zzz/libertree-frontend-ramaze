@@ -27,7 +27,7 @@ module Controller
         comment = Libertree::Model::Comment.create(
           'member_id' => account.member.id,
           'post_id'   => post.id,
-          'text'      => cleanse(request['text'])
+          'text'      => request['text']
         )
 
         Libertree::Model::Job.create(
